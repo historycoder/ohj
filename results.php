@@ -50,7 +50,7 @@ if (!$searchterm_exists) {
 //$statement = "SELECT * FROM " . $db_table . " WHERE ";
 
 // select count(*), match(text) against('williamson') as score from roster where match(text) against('williamson')
-$statement = "SELECT *, MATCH(pagetext) AGAINST ('" . $searchterm . "' IN BOOLEAN MODE) AS score FROM " . $dbcon['db_table'] . " WHERE MATCH(pagetext) AGAINST('" . $searchterm . "' IN BOOLEAN MODE)";
+$statement = "SELECT *, MATCH(pagetext) AGAINST ('" . $searchterm . "') AS relevance FROM " . $dbcon['db_table'] . " WHERE MATCH(pagetext) AGAINST('" . $searchterm . "') ORDER BY relevance DESC";
 $pages = new Paginator;
 $criteria_total = count($search_criteria);
 if (!$nothing_to_search) {
@@ -199,7 +199,7 @@ div.jGrowl div.resultsAlerts {
 	echo( '<input type="hidden" name="sort" value="'.($sort_exists ? $sort : "").'">' );
 	echo( '<input type="hidden" name="start" value="'.$start.'">' );
 	echo( '</form>' );*/
-	//echo( '<br/>' );
+
 	if ($nothing_to_search) {
 		echo("<p>".$message."</p>");
 	} else if ($no_results) { 
@@ -221,52 +221,27 @@ div.jGrowl div.resultsAlerts {
 			$searchterms = explode(" ", $searchterm);
 			$page_url = $volume_string . $startpage_text . ".html";
 			
-			/*
-			if (file_exists($dbcon['html_dir'] . "/" . $page_url)) {
-				$page_html = file_get_contents($dbcon['html_dir'] . "/" . $page_url);
-			} else {
-				continue;
+			foreach ($searchterms as $st) {
+				$page_html = preg_replace('/(.*?)([ ]{0,20}'.$st.'.{0,20}[ ])(.*?)/','$2',$page_html);
 			}
-			*/
 			
 			foreach ($searchterms as $st) {
-				if (preg_match('/'.$st.'/si',$page_html, $matches) < 1) { continue; };
-				//$term_position = strpos($page_html)
-				preg_match_all('/.{0,30}'.$st.'.{0,30}/si', $page_html, $matches);
-				//print_r($matches[0]);
-				$page_html = join(' ...<br/>... ', $matches[0]);
 				$page_html = preg_replace('/('.$st.')/si','<span style="color:#cc0000;font-weight:bold">$1</span>',$page_html);
 			}
-			//echo( '<label for="result-'.$row['page'].'">' . $row['page'] );
-			//echo( '<span style="white-space: normal; font-size:80%">' );
+			
 			echo("<ul>");
-			//echo( (trim($page_html) != "") ? $page_html : "n/a" );
-			echo( '<li><a href="display.php?page='. $pages->current_page . '&ipp=' . $pages->items_per_page . '&searchterm=' . $searchterm . '&vol=' . $volume_text . '&pages=' . $page_text . '">' );
+			echo( '<li><a href="display.php?page='. $pages->current_page . '&ipp=' . $pages->items_per_page . '&searchterm=' . $searchterm . '&vol=' . $volume_text . '&pages=' . preg_replace('/[a-zA-Z ]/','',$page_text) . '">' );
 			echo( $title_text . " "); 
 			echo( !empty($author_text) ? $author_text . ". " : "" );
 			echo( "Volume " . $volume_text . ", " . $issue_text . ", " . $month_text . ", " . $year_text . ", pp. " . $page_text . "." );
-			echo( '</a></li>' );
+			echo( '</a> ' . '</li>' );
 			echo( '<li style="list-style-type: none;"> ...'.$page_html.'...</li>' );
 			echo("</ul>");
-			//echo( "<pre>" );
-			//echo( $page_html );
-			//echo( "</pre>" );
-			
-			//echo( "</span>" );
-
-			//echo( '</label><br/>' );
-			//echo( '<hr style="height:4px;background-color:#999999;color:#999999">' );
 			
 		}
 		
 	}
-	/*
-	echo( '<form id="searchVals" action="results.php" method="post">' );
-	echo( '<input type="hidden" name="searchterm" value="'.($searchterm_exists ? $searchterm : "").'">' );
-	echo( '<input type="hidden" name="sort" value="'.($sort_exists ? $sort : "").'">' );
-	echo( '<input type="hidden" name="start" value="'.$start.'">' );
-	echo( '</form>' );
-	*/
+	
 ?>
 
 <div style="text-align:center;padding:6px; height: 30px;margin-top:10px;">

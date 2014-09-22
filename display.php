@@ -4,7 +4,7 @@ $dbcon = parse_ini_file('conf/dbcon.ini');
 $searchterm = array();
 $vol_number = "";
 $page_numbers = "";
-$pages = "";
+$pages = array();
 
 if (!empty($_POST['page']) || !empty($_GET['page'])) {
 	$current_page = !empty($_POST['page']) ? substr($_POST['page'],0,3) : substr($_GET['page'],0,3);
@@ -20,10 +20,28 @@ if (!empty($_POST['pages']) || !empty($_GET['pages'])) {
 		if (preg_match('/[^\d]/', $vol_number)) { exit; }
 	}
 	
-	$page_numbers = !empty($_POST['pages']) ? substr($_POST['pages'],0,10) : substr($_GET['pages'],0,10);
-	if (preg_match('/[^\d-]/', $page_numbers)) { exit; }
+	$page_numbers = !empty($_POST['pages']) ? substr($_POST['pages'],0,12) : substr($_GET['pages'],0,12);
+	if (preg_match('/[^\d-,]/', $page_numbers)) { exit; }
 	
-	$pages = explode("-", $page_numbers);
+	if (preg_match('/,/',$page_numbers)) {
+		$pages_plus_notes = explode(",", $page_numbers);
+		foreach($pages_plus_notes as $page_set) {
+			$page_num = explode("-", $page_set);
+			for ($i = $page_num[0]; $i <= $page_num[1]; $i++) {
+				array_push($pages, $i);
+			}
+		}
+	} else {
+		if (preg_match('/-/',$page_numbers)) {
+			$page_set = explode("-", $page_numbers);
+			for ($i = $page_set[0]; $i <= $page_set[1]; $i++) {
+				array_push($pages, $i);
+			}
+		} else {
+			array_push($pages, $page_numbers);
+		}
+	}
+	//print_r($pages);
 	
 }
 if (!empty($_POST['searchterm']) || !empty($_GET['searchterm'])) {
@@ -53,8 +71,9 @@ if (!empty($_POST['searchterm']) || !empty($_GET['searchterm'])) {
   		
 		if (count($pages) > 1) {
 			
-	    	for ($i = $pages[0]; $i <= $pages[1]; $i++) {
-	    		$page_url = str_pad($vol_number, 4, '0', STR_PAD_LEFT) . $i . ".html";
+	    	//for ($i = $pages[0]; $i <= $pages[1]; $i++) {
+	    	foreach($pages as $page_no) {
+	    		$page_url = str_pad($vol_number, 4, '0', STR_PAD_LEFT) . $page_no . ".html";
 				$page_html = file_get_contents($dbcon['html_dir'] . "/" . $page_url);
 				$pattern_array = array('/[\xA0]/', '/[\xB0]/');
 				$replacements = array('&nbsp;', '&deg;');
