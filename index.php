@@ -41,7 +41,7 @@
 	<blockquote> 
 		<p><font face="Arial, Helvetica, sans-serif">You can find information in a variety of ways. You may browse the alphabetical listings in the <a href="browse/indexbrowse.php">Index</a>, search for a particular topic in the <a href="browse/indexsearch.php">Index Search</a>, or try a <a href="search/index.php">Full-text Search</a> for more obscure subjects. You may also browse individual issues by <a href="browse/volumebrowse.php">Volume Number</a>. </font>
 		</p>
-		<p><font face="Arial, Helvetica, sans-serif">If you are a researcher citing a reference from <i>Ohio History</i>, please see <a href="issues.html">Appendix A: Issue Dates and Pagination</a>. </font>
+		<p><font face="Arial, Helvetica, sans-serif">If you are a researcher citing a reference from <i>Ohio History</i>, please see <a href="HTML/issues.html">Appendix A: Issue Dates and Pagination</a>. </font>
 		</p>
 	</blockquote>
 	</div>

@@ -27,9 +27,9 @@ for($x=0; $x<$arrlength; $x++){
 	};
 ?>
 </p>
-<p> <a href="issues.html">Appendix A: Issue Dates and Pagination</a><br>
-  <a href="staff.html">Appendix B: Staff Roster</a><br>
-  <a href="reviews.html">Appendix C: Book Reviews, Book Notes, 
+<p> <a href="../HTML/issues.html">Appendix A: Issue Dates and Pagination</a><br>
+  <a href="../HTML/staff.html">Appendix B: Staff Roster</a><br>
+  <a href="../HTML/reviews.html">Appendix C: Book Reviews, Book Notes, 
   Authors, and Reviewers</a> </p>
 <hr>
 </body>
