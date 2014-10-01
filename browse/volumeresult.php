@@ -45,25 +45,25 @@ catch(PDOException $e) {
 
 
 ?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"> 
-<head>
-<title>Volume</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-<style>
-a{
-	text-decoration: none;
-}
-</style>
-</head>
-<body>
-<div id="paging-section" class="container">
+<?php require "ohcsite/webbodyheader.php" ?>
+<div class="container">
+	<div class="c2" id="content-primary">
+	<div id="heading" class="c2">
+		<h1>Ohio History Journal</h1>
+	</div><br>
+	<div id="maincontent" class="c2">
+	<div class="maincontent">
+		<h2><em><b>Volume <?php echo $volume;?> Results</b></em></h2>
+
+<div id="paging-section">
 		<?php echo $pages->display_pages(); ?>
 </div>
 <div>
 <br/>
 <?php
-	echo "<h2>Contents, Volume " . $volume . "</h2>";
+	echo( '<div style="width:100%" class="container">' );
+	echo( '<form id="volumeResults" style="margin: 0 auto; width: 500px">' );
+	echo "<h5>Contents, Volume " . $volume . "</h5>";
 	echo "<h5>ARTICLES</h5>";
 	try{
 		$statement = "SELECT DISTINCT Page, StartPage, Title, Author, Subject FROM " . $dbcon['journal_db_voltable'] . " WHERE Volume = " . $volume . " ORDER BY StartPage, Title ASC " . $pages->limit;
@@ -149,13 +149,18 @@ a{
 			}
 			echo "</dd>";
 	}
+	echo('</form>');
+	echo('</div>');
 ?>
 </div>
-<div id="bottom-paging-section" class="container">
+<div id="paging-section">
 			
 		<?php echo $pages->display_pages(); ?><br/><br/>
-		   
 </div> 
-
-</body>
-</html>
+</div>
+	</div>
+	<div id="endmaincontent" class="c2">
+	</div>
+</div>
+<?php require "ohcsite/sidenav.php" ?>
+<?php require "ohcsite/webfooterendbody.php" ?>

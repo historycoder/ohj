@@ -53,7 +53,7 @@ if (!empty($_POST['searchterm']) || !empty($_GET['searchterm'])) {
 
 ?>
 
-<!doctype html public 
+<!--<!doctype html public 
   "-//w3c//dtd html 4.01 transitional//en"
   "http://www.w3.org/tr/1999/rec-html401-19991224/loose.dtd">
 <html>
@@ -64,11 +64,16 @@ if (!empty($_POST['searchterm']) || !empty($_GET['searchterm'])) {
   </head>
   <body>
 		<div style="width:100%"> 
-		<div style="width:40%;margin: 0 auto;">	 	
+		<div style="width:40%;margin: 0 auto;">!-->
+<?php require "ohcsite/webbodyheader.php" ?>
+<div class="container">
+	<div class="c2" id="content-primary">
+	<div id="heading" class="c2">
+		<h1>Ohio History Journal</h1>
   	<?php
   		
-  		echo( '<br/><a href="results.php?page=' . $current_page . '&ipp=' . $items_per_page . '&searchterm=' . $searchterm . '">Back to results</a><br/>' );
-  		
+  		echo( '<div id="localnav"><ul><li><a href="results.php?page=' . $current_page . '&ipp=' . $items_per_page . '&searchterm=' . $searchterm . '">Back to results</a></li></ul></div>' );
+  		echo('<br><br></div><div id="pagedisplay" class="c2">');
 		if (count($pages) > 1) {
 			
 	    	//for ($i = $pages[0]; $i <= $pages[1]; $i++) {
@@ -102,5 +107,7 @@ if (!empty($_POST['searchterm']) || !empty($_GET['searchterm'])) {
   		</div>
     
    	</div>
-  </body>
-</html>
+	<?php require "ohcsite/sidenav.php" ?>
+<?php require "ohcsite/webfooterendbody.php" ?>
+  <!--</body>
+</html>!-->

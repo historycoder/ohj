@@ -49,19 +49,17 @@ catch(PDOException $e) {
 }
 ?>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"> 
-<head>
-<title>Index Search</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-<style>
-a{
-	text-decoration: none;
-}
-</style>
-</head>
-<body>
-<div id="paging-section" class="container">
+<?php require "ohcsite/webbodyheader.php" ?>
+<div class="container">
+	<div class="c2" id="content-primary">
+	<div id="heading" class="c2">
+		<h1>Ohio History Journal</h1>
+	</div><br>
+	<div id="maincontent" class="c2">
+	<div class="maincontent">
+		<h2><em><b>Index Results For <?php echo $text;?></b></em></h2>
+
+<div id="paging-section">
 		<?php echo $pages->display_pages(); ?>
 </div>
 <br/>
@@ -241,11 +239,15 @@ echo( '<div style="width:100%" class="container">' );
 	echo( '</form>' );
 	echo( '</div>' );
 ?>
-<div id="bottom-paging-section" class="container">
+<div id="paging-section">
 			
 		<?php echo $pages->display_pages(); ?><br/><br/>
-		   
 </div> 
+</div>
+	</div>
+	<div id="endmaincontent" class="c2">
+	</div>
+</div>
 
-</body>
-</html>
+<?php require "ohcsite/sidenav.php" ?>
+<?php require "ohcsite/webfooterendbody.php" ?>

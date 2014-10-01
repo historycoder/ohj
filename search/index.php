@@ -1,83 +1,11 @@
-<!doctype html public 
-  "-//w3c//dtd html 4.01 transitional//en"
-  "http://www.w3.org/tr/1999/rec-html401-19991224/loose.dtd">
-<html> 
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-
-<title>Ohio History Journal</title>
-
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.2.12/jquery.jgrowl.min.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.2.12/jquery.jgrowl.min.js"></script>
-
-<script type="text/javascript" src="../formly/formly.js"></script>
-<link rel="stylesheet" href="../formly/formly.css" type="text/css" />
-
-<script type="text/javascript">
-	
-	$(document).ready(function() {		
-		$('#searchform').formly(); 
-	});
-	
-	function validateForm() {
-		/*	
-		var yearExists = /^\d\d\d\d$/.test(document.forms["newssearch"]["year"].value);
-		var titleExists = /[A-Na-n]/.test(document.forms["newssearch"]["title"].value);
-		var searchtermExists = /[A-Na-n]/.test(document.forms["searchform"]["searchterm"].value);
-		
-		if (!yearExists && !titleExists && !authorExists && !subjectExists && !searchTerm) {
-			//new Messi('Need something to search', {title: 'Search Error', titleClass: 'info', buttons: [{id: 0, label: 'Close', val: 'X'}]});
-			$.jGrowl("Need something to search", { theme: 'validation', header: 'Search Error', live: 10000 });
-			return false;
-		}
-		if (!searchtermExists) {
-			$('#newsform').formly(); 
-		}
-		
-		*/
-		return true;
-	}
-</script>
-
-<style type="text/css">
-
-body {
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 12px;
-}
-.heading {
-	text-align:center;
-	font-size:120%;padding:20px;
-}
-.backto {
-	text-align:center;
-	padding:10px;
-}
-a.navlinks {
-	text-decoration: none;
-}
-a.navlinks:hover {
-	color: red;
-	text-decoration: underline;
-}
-div.jGrowl div.validation {
-	background-color: #808080;
-	width: 200px;
-	min-height: 0px;
-	border: 1px solid #000;
-}
-
-</style>
-</head> 
-<body>
-		
-	<div class="backto"><a class="navlinks" href="http://www.ohiohistory.org/collections--archives/archives-library">Library/Archives Home</a></div>
-	<div class="heading"><b><i>Ohio History Journal</i> Search</b></div>
-	
+<?php require "ohcsite/webbodyheader.php" ?>
+<div class="container">
+<div class="c2" id="content-primary">
+	<div id="heading" class="c2">
+		<h1>Ohio History Journal</h1>
+	</div><br>
+	<div id="maincontent" class="c2">
+	<div class="maincontent">
 	<div style="width:100%">
 	
 	<div style="width:38%;margin: 0 auto;">
@@ -97,6 +25,9 @@ div.jGrowl div.validation {
 	
 	</div>
 	</div>
-	
-</body>
-</html>
+	</div>
+	</div>
+	<div id="endmaincontent" class="c2"></div>
+</div>
+<?php require "ohcsite/sidenav.php" ?>
+<?php require "ohcsite/webfooterendbody.php" ?>

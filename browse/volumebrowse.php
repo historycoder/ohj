@@ -10,30 +10,18 @@
 $dbcon = parse_ini_file('../conf/dbcon.ini');
 
 ?>
-<!--
-	OHS Journal index
-!-->
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"> 
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<style>
-a{
-	text-decoration: none;
-}
-p{
-	wordwrap: break-word;
-}
-#volumes{
-	width: 300 px;
-}
-</style>
-
-<title>Volume</title>
-</head>
-<body>
-Please choose the volume you wish to browse.<br>
+<?php require "ohcsite/webbodyheader.php" ?>
+<div class="container">
+	<div class="c2" id="content-primary">
+	<div id="heading" class="c2">
+		<h1>Ohio History Journal</h1>
+	</div><br>
+	<div id="maincontent" class="c2">
+	<div class="maincontent">
+		<p><h2><em><b>Volume Browse</b></em></h2><br></p>
+<p>
+Please choose the volume you wish to browse.</p>
 <div id=volumes>	
 <p>
 <?php
@@ -58,6 +46,10 @@ for($x=1; $x<$volmax['volumes']; $x++){
   <a href="../HTML/staff.html">Appendix B: Staff Roster</a><br>
   <a href="../HTML/reviews.html">Appendix C: Book Reviews, Book Notes, 
   Authors, and Reviewers</a> </p>
-<hr>
-</body>
-</html>
+</div>
+</div>
+	<div id="endmaincontent" class="c2">
+	</div>
+</div>
+<?php require "ohcsite/sidenav.php" ?>
+<?php require "ohcsite/webfooterendbody.php" ?>

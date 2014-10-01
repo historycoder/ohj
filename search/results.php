@@ -82,7 +82,7 @@ if (!$nothing_to_search) {
 
 ?>
 
-<!doctype html public 
+<!--<!doctype html public 
   "-//w3c//dtd html 4.01 transitional//en"
   "http://www.w3.org/tr/1999/rec-html401-19991224/loose.dtd">
 <html>
@@ -179,16 +179,25 @@ div.jGrowl div.resultsAlerts {
 
 	
 </head>
-<body>
-
-<div style="text-align:center;padding:20px;">
+<body>!-->
+<?php require "ohcsite/webbodyheader.php" ?>
+<div class="container">
+<div class="c2" id="content-primary">
+	<div id="heading" class="c2">
+		<h1>Ohio History Journal</h1>
+	</div><br><br>
+	<div id="altinstructions" class="c2">
+	<h2 style="margin:1em 0em;"><em><b>Full Text Results For <?php echo $searchterm;?></b></em></h2>
+	
+<!--<div style="text-align:center;padding:20px;">
 	<a class="navlinks" href="index.php">Ohio History Journal Search Home</a>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<a class="navlinks" href="http://www.ohiohistory.org/collections--archives/archives-library">Library/Archives Home</a>
-</div>
- 	
+</div>!-->
+
 <div class="paging-section">
 	<?php echo $pages->display_pages(); ?>
+</div>
 </div>
 
 <?php
@@ -229,25 +238,31 @@ div.jGrowl div.resultsAlerts {
 				$page_html = preg_replace('/('.$st.')/si','<span style="color:#cc0000;font-weight:bold">$1</span>',$page_html);
 			}
 			
-			echo("<ul>");
-			echo( '<li><a href="display.php?page='. $pages->current_page . '&ipp=' . $pages->items_per_page . '&searchterm=' . $searchterm . '&vol=' . $volume_text . '&pages=' . preg_replace('/[a-zA-Z ]/','',$page_text) . '">' );
+			#echo("<ul>");
+			#echo( '<li><a href="display.php?page='. $pages->current_page . '&ipp=' . $pages->items_per_page . '&searchterm=' . $searchterm . '&vol=' . $volume_text . '&pages=' . preg_replace('/[a-zA-Z ]/','',$page_text) . '">' );
+			echo( '<dt><a href="display.php?page='. $pages->current_page . '&ipp=' . $pages->items_per_page . '&searchterm=' . $searchterm . '&vol=' . $volume_text . '&pages=' . preg_replace('/[a-zA-Z ]/','',$page_text) . '">' );
 			echo( $title_text . " "); 
 			echo( !empty($author_text) ? $author_text . ". " : "" );
 			echo( "Volume " . $volume_text . ", " . $issue_text . ", " . $month_text . ", " . $year_text . ", pp. " . $page_text . "." );
-			echo( '</a> ' . '</li>' );
-			echo( '<li style="list-style-type: none;"> ...'.$page_html.'...</li>' );
-			echo("</ul>");
+			echo( '</a> ' . '</dt>' );
+			echo( '<dd style="list-style-type: none;color:#000000;"> ...'.$page_html.'...</dd><br>' );
+			#echo( '</a> ' . '</li>' );
+			#echo( '<li style="list-style-type: none;"> ...'.$page_html.'...</li>' );
+			#echo("</ul>");
 			
 		}
 		
 	}
 	
 ?>
-
-<div style="text-align:center;padding:6px; height: 30px;margin-top:10px;">
+<div class="paging-section">
+<!--<div style="text-align:center;padding:6px; height: 30px;margin-top:10px;">!-->
    	<?php echo $pages->display_pages(); ?>
     <br/>&nbsp;<br/><a href="index.php">Ohio History Journal Search Home</a><br/>
 </div> 
+</div>
 	
-  </body>
-</html>
+  <!--</body>
+</html>!-->
+<?php require "ohcsite/sidenav.php" ?>
+<?php require "ohcsite/webfooterendbody.php" ?>
