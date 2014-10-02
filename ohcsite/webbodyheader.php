@@ -5,7 +5,7 @@
 <head>
 <title>OHJ Archive</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link media="ALL" rel="stylesheet" type="text/css" href="ohcsite/style.css">
+<link media="ALL" rel="stylesheet" type="text/css" href="<?php echo($path."ohcsite/style.css")?>">
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -120,7 +120,7 @@
 		<!--End Added on 8/27!-->
 
 		<div id="header" class="container">
-			<a href="http://www.ohiohistory.org" id="logo"><img src="ohcsite/img/logo-ohs.gif" alt="Ohio Historical Society"></a>
+			<a href="http://www.ohiohistory.org" id="logo"><img src="<?php echo $path."ohcsite/img/logo-ohs.gif"?>" alt="Ohio Historical Society"></a>
 			<div id="nav-utility">
 				<ul>
 					<li class="first-child"><a href="http://www.ohiohistory.org/visit">Visit</a></li>

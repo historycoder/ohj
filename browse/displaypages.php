@@ -13,7 +13,9 @@ $end = $start + ($endpage-$startpage);
 $next = 1;
 $newstartpage = $startpage;
 ?>
-<?php require "ohcsite/webbodyheader.php" ?>
+<?php 
+$path= '../';
+require "../ohcsite/webbodyheader.php" ?>
 <div class="container">
 	<div class="c2" id="content-primary">
 	<div id="heading" class="c2">
@@ -95,5 +97,10 @@ $newstartpage = $startpage;
 	?>
 	</div>
 	</div>
-	<?php require "ohcsite/sidenav.php" ?>
-<?php require "ohcsite/webfooterendbody.php" ?>
+<?php
+	$index='../';
+	$search='../search/';
+	$browse='';
+
+	require "../ohcsite/sidenav.php" ?>
+<?php require "../ohcsite/webfooterendbody.php" ?>

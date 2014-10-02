@@ -82,105 +82,9 @@ if (!$nothing_to_search) {
 
 ?>
 
-<!--<!doctype html public 
-  "-//w3c//dtd html 4.01 transitional//en"
-  "http://www.w3.org/tr/1999/rec-html401-19991224/loose.dtd">
-<html>
-<head>
-<title>Ohio History Journal Search Results</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jStorage/0.3.0/jstorage.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-
-<link type="text/css" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.selectboxit/3.6.0/jquery.selectBoxIt.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.selectboxit/3.6.0/jquery.selectBoxIt.min.js"></script>
-
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.2.12/jquery.jgrowl.min.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.2.12/jquery.jgrowl.min.js"></script>
-
-<script type="text/javascript" src="formly/formly.js"></script>
-<link rel="stylesheet" href="formly/formly.css" type="text/css" />
-
-<style type="text/css">
-
-body {
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 10pt;
-}
-
-.paging-section {
-	text-align:center;
-	padding:6px;
-	height: 30px;
-}
-	
-.paginate {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: .7em;
-}
-
-a.paginate {
-	border: 1px solid #000080;
-	padding: 2px 6px 2px 6px;
-	text-decoration: none;
-	color: #000080;
-}
-
-a.paginate:hover {
-	background-color: #000080;
-	color: #FFF;
-	text-decoration: underline;
-}
-
-a.current {
-	border: 1px solid #000080;
-	font: bold .7em Arial,Helvetica,sans-serif;
-	padding: 2px 6px 2px 6px;
-	cursor: default;
-	background:#000080;
-	color: #FFF;
-	text-decoration: none;
-}
-
-span.inactive {
-	border: 1px solid #999;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: .7em;
-	padding: 2px 6px 2px 6px;
-	color: #999;
-	cursor: default;
-}
-
-a.navlinks {
-	text-decoration:none;
-}
-a.navlinks:hover {
-	color: red;
-	text-decoration: underline;
-}
-
-div.jGrowl div.resultsAlerts {
-	background-color: #808080;
-	width: 200px;
-	min-height: 0px;
-	border: 1px solid #000;
-}
-
-</style>
-
-<script type="text/javascript">	
-	$(document).ready(function() {
-		$('#searchResults').formly(); 		
-	});	
-</script>
-
-	
-</head>
-<body>!-->
-<?php require "ohcsite/webbodyheader.php" ?>
+<?php
+$path= '../';
+ require "../ohcsite/webbodyheader.php" ?>
 <div class="container">
 <div class="c2" id="content-primary">
 	<div id="heading" class="c2">
@@ -264,5 +168,10 @@ div.jGrowl div.resultsAlerts {
 	
   <!--</body>
 </html>!-->
-<?php require "ohcsite/sidenav.php" ?>
-<?php require "ohcsite/webfooterendbody.php" ?>
+<?php
+$index='../';
+$search='';
+$browse='../browse/';
+
+ require "../ohcsite/sidenav.php" ?>
+<?php require "../ohcsite/webfooterendbody.php" ?>

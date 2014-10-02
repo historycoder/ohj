@@ -53,19 +53,10 @@ if (!empty($_POST['searchterm']) || !empty($_GET['searchterm'])) {
 
 ?>
 
-<!--<!doctype html public 
-  "-//w3c//dtd html 4.01 transitional//en"
-  "http://www.w3.org/tr/1999/rec-html401-19991224/loose.dtd">
-<html>
-  <head>
-    <title>blank html 4 transitional page</title>
-    <meta http-equiv="content-type" 
-          content="text/html; charset=utf-8">
-  </head>
-  <body>
-		<div style="width:100%"> 
-		<div style="width:40%;margin: 0 auto;">!-->
-<?php require "ohcsite/webbodyheader.php" ?>
+<?php
+$path= '../';
+
+ require "../ohcsite/webbodyheader.php" ?>
 <div class="container">
 	<div class="c2" id="content-primary">
 	<div id="heading" class="c2">
@@ -107,7 +98,12 @@ if (!empty($_POST['searchterm']) || !empty($_GET['searchterm'])) {
   		</div>
     
    	</div>
-	<?php require "ohcsite/sidenav.php" ?>
-<?php require "ohcsite/webfooterendbody.php" ?>
+<?php
+$index='../';
+$search='';
+$browse='../browse/';
+
+ require "../ohcsite/sidenav.php" ?>
+<?php require "../ohcsite/webfooterendbody.php" ?>
   <!--</body>
 </html>!-->

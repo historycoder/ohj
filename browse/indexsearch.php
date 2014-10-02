@@ -1,4 +1,6 @@
-<?php require "ohcsite/webbodyheader.php" ?>
+<?php
+$path= '../';
+ require "../ohcsite/webbodyheader.php" ?>
 <div class="container">
 <div class="c2" id="content-primary">
 	<div id="heading" class="c2">
@@ -24,5 +26,10 @@
 	</div>
 	<div id="endmaincontent" class="c2"></div>
 </div>
-<?php require "ohcsite/sidenav.php" ?>
-<?php require "ohcsite/webfooterendbody.php" ?>
+<?php
+$index='../';
+$search='../search/';
+$browse='';
+
+ require "../ohcsite/sidenav.php" ?>
+<?php require "../ohcsite/webfooterendbody.php" ?>

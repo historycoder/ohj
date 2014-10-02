@@ -49,7 +49,9 @@ catch(PDOException $e) {
 }
 ?>
 
-<?php require "ohcsite/webbodyheader.php" ?>
+<?php
+$path= '../';
+ require "../ohcsite/webbodyheader.php" ?>
 <div class="container">
 	<div class="c2" id="content-primary">
 	<div id="heading" class="c2">
@@ -249,5 +251,10 @@ echo( '<div style="width:100%" class="container">' );
 	</div>
 </div>
 
-<?php require "ohcsite/sidenav.php" ?>
-<?php require "ohcsite/webfooterendbody.php" ?>
+<?php
+$index='../';
+$search='../search/';
+$browse='';
+
+ require "../ohcsite/sidenav.php" ?>
+<?php require "../ohcsite/webfooterendbody.php" ?>
