@@ -15,7 +15,9 @@
 <script type="text/javascript">
 	
 	$(document).ready(function() {		
-		$('#searchform').formly(); 
+		$('.level1').hide();
+		$('#topNav li').hover( function(){$(this).children(".level1").show(500)}, function(){$(this).children(".level1").hide(500);});
+		/*$('#searchform').formly();*/
 	});
 	
 	function validateForm() {
